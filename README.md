@@ -168,7 +168,7 @@ int main() {
     return 0;
 }<br></pre>
 
-Notice that we count all the point that need to be discussed:total = 1LL * m * m. for (d = 0; d < total; ++d). Since every square contains four small square we define every two digits of d in binary(00,01,10,11)to be the calculated and consider whether to flip and swap it. In this situation:
+Notice that we count all the point that need to be discussed:total = 1LL * m * m. for (d = 0; d < total; ++d). Since every square contains four small square we define every two bits of d in binary(00,01,10,11)to be the calculated and consider whether to flip and swap it. In this situation:
 
 <pre><br>
 00|01
@@ -340,5 +340,5 @@ int main(){
     return 0;
 }<br></pre>
 
-The second method can also work but we should turn d into three digits system instead of two and each level consider one digits. The rotate can be difficult. I come up with starting from the down left corner(x=0,y = height-1). now d2xy instead of using x and y we us row and column to show the triangle(row 1 has 1 column, row 2 has 2 column). For rotating we use the formula, something like r = size-r', y = size - r' - y'. The formula can be searched online. After traversing through each level and its unit we then change it back to the xy system on the canva and cout.
+The second method can also work but we should turn d into three digits system instead of two and each level consider one bits. The rotate can be difficult. I come up with starting from the down left corner(x=0,y = height-1). now d2xy instead of using x and y we us row and column to show the triangle(row 1 has 1 column, row 2 has 2 column). For rotating we use the formula, something like r = size-r', y = size - r' - y'. The formula can be searched online. After traversing through each level and its unit we then change it back to the xy system on the canva and cout.
 
