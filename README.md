@@ -34,7 +34,7 @@ AS we can see each level contains four small level, the top left one is rotated 
 
 The first approach is the simplest. First we make a canvas with calculated width and length:
 
-<pre><br>vector<string> canvas(height, string(width, ' '));<br><pre>
+<pre><br>vector<string> canvas(height, string(width, ' '));<br></pre>
 
 Note that we set up left corner to be x=0, y=0. Then we create a function(auto &canvas, int level,int x, int y) as well as function_counter and function_clockwise to represent the rotated situation.<br>
 
@@ -47,7 +47,7 @@ Inside the function we:
     ...
     //now we add the connecting line
 }
-<br><pre>
+<br></pre>
 
 So we call one time with the correct direction, move to the down left of the next small square, call, move, call, move. After calling four times we then move x and y to the connecting point to add "-" or "|". Note that in the function we should add:
 
@@ -57,7 +57,7 @@ So we call one time with the correct direction, move to the down left of the nex
     canvas[y+2][x] = "+";
     ...
     return;
-    }<br><pre>
+    }<br></pre>
 
 so when dealing with level 3 we actually calls level 2 for 4 times and each will call level 1 for four times. Because level 3 doesn't rotate, we can the normal function(3,0,0). Remember that we create three functions so that each function the calling sequence schould be different and the shape inside the canvas in the if statement(level==1) should be different. normal, counter, clockwise, respectively.<br>
 
@@ -71,7 +71,7 @@ After all the loop, we can now cout the canvas.
         else cout << canvas[r].substr(0, last+1) << '\n';
     }
 
-    return 0;<br><pre>
+    return 0;<br></pre>
 
 I didn't use this method but rather discuss with copilot to approach with another way:
 
@@ -166,7 +166,7 @@ int main() {
     }
 
     return 0;
-}<br><pre>
+}<br></pre>
 
 Notice that we count all the point that need to be discussed:total = 1LL * m * m. for (d = 0; d < total; ++d). Since every square contains four small square we define every two digits of d in binary(00,01,10,11)to be the calculated and consider whether to flip and swap it. In this situation:
 
@@ -174,7 +174,7 @@ Notice that we count all the point that need to be discussed:total = 1LL * m * m
 00|01
 --+--
 11|10
-<br><pre>
+<br></pre>
 
 And we calculate rx(flip), ry(swap) in d2xy() function. rx and ry also determines whether we should move it right and down an unit. The d2xy funxtion determines the x and y for each d from 0 to total-1. And in the main function we see how x, y differs from previous (d-1) px(previous x) py (previous y) to choose how to connect them. Notice that when d is put into d2xy we traverse each smaller level and get the two digits with corresponding unit s to decide how far we should move it. Traverse into next level, s*=2 and first consider where it is in this level, whether we should flip and swap it or not, then move them by the unit s. After traversing each level we then know where d should be and connect all of them to the previous one. Finally we cout it.<br>
 
@@ -182,7 +182,7 @@ For HanoiTower:IF input =1:
 
 <pre><br>  @  
  / \ 
-@   @<br><pre>
+@   @<br></pre>
 
 2:
 <pre><br>      @      
@@ -191,7 +191,7 @@ For HanoiTower:IF input =1:
    /     \   
   @       @  
    \     /   
-@---@   @---@<br><pre>
+@---@   @---@<br></pre>
 
 3:
 
@@ -209,7 +209,7 @@ For HanoiTower:IF input =1:
          \         /
   @       @       @       @
  / \       \     /       / \
-@   @---@---@   @---@---@   @
+@   @---@---@   @---@---@   @ <br></pre>
 
 Its similar and because the rotate can be difficult I use the first method:
 
@@ -338,7 +338,7 @@ int main(){
         cout << row << "\n";
     }
     return 0;
-}<br><pre>
+}<br></pre>
 
 The second method can also work but we should turn d into three digits system instead of two and each level consider one digits. The rotate can be difficult. I come up with starting from the down left corner(x=0,y = height-1). now d2xy instead of using x and y we us row and column to show the triangle(row 1 has 1 column, row 2 has 2 column). For rotating we use the formula, something like r = size-r', y = size - r' - y'. The formula can be searched online. After traversing through each level and its unit we then change it back to the xy system on the canva and cout.
 
