@@ -179,7 +179,7 @@ Notice that we count all the point that need to be discussed:total = 1LL * m * m
 
 And we calculate rx(flip), ry(swap) in d2xy() function. rx and ry also determines whether we should move it right and down an unit. The d2xy funxtion determines the x and y for each d from 0 to total-1. And in the main function we see how x, y differs from previous (d-1) px(previous x) py (previous y) to choose how to connect them. Notice that when d is put into d2xy we traverse each smaller level and get the two digits with corresponding unit s to decide how far we should move it. Traverse into next level, s*=2 and first consider where it is in this level, whether we should flip and swap it or not, then move them by the unit s. After traversing each level we then know where d should be and connect all of them to the previous one. Finally we cout it.<br>
 
-For HanoiTower:IF input =1:
+## For HanoiTower:IF input =1:
 
 <pre><br>  @  
  / \ 
