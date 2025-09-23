@@ -31,7 +31,7 @@ If input = 3:
 |  |  |  |  |  |  |  |
 +--+  +--+  +--+  +--+<br></pre>
 
-AS we can see each level contains four small level, the top left one is rotated counter-clockwise 90 degrees. The top right is rotated clockwise 90 degrees. The bottom left and right ones doesn't rotate.<br>
+As we can see each level contains four small level, the top left one is rotated counter-clockwise 90 degrees. The top right is rotated clockwise 90 degrees. The bottom left and right ones doesn't rotate.<br>
 
 The first approach is the simplest. First we make a canvas with calculated width and length:
 
